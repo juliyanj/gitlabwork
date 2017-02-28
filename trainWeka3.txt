@@ -1,4 +1,4 @@
-modified locally
+modified here
 
 // Відкриваємо тестове зображення.
 run("Leaf (36K)");
