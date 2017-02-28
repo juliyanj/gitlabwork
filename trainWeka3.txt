@@ -1,0 +1,32 @@
+// Відкриваємо тестове зображення.
+run("Leaf (36K)");
+ 
+// запускаємо плагін.
+run("Trainable Weka Segmentation");
+ 
+// відраховуємо час на запуск плагіну.
+wait(3000);
+selectWindow("Trainable Weka Segmentation v2.2.0");
+ 
+// додаємо до кожного класу область на зображенні.
+makeRectangle(367, 0, 26, 94);
+call("trainableSegmentation.Weka_Segmentation.addTrace", "0", "1");
+makeRectangle(186, 132, 23, 166);
+call("trainableSegmentation.Weka_Segmentation.addTrace", "1", "1");
+ 
+// підключаємо деякі особливості, за якими буде відбуватися сегментація
+call("trainableSegmentation.Weka_Segmentation.setFeature", "Variance=true");
+call("trainableSegmentation.Weka_Segmentation.setFeature", "Mean=true");
+call("trainableSegmentation.Weka_Segmentation.setFeature", "Minimum=true");
+call("trainableSegmentation.Weka_Segmentation.setFeature", "Maximum=true");
+call("trainableSegmentation.Weka_Segmentation.setFeature", "Median=true");
+ 
+// Є можливість змінити назви класів
+call("trainableSegmentation.Weka_Segmentation.changeClassName", "0", "background");
+call("trainableSegmentation.Weka_Segmentation.changeClassName", "1", "leaf");
+ 
+// запуск навчання
+call("trainableSegmentation.Weka_Segmentation.trainClassifier");
+ 
+// відобразити ймовірнісну картину(Рис. 3)
+call("trainableSegmentation.Weka_Segmentation.getProbability");
