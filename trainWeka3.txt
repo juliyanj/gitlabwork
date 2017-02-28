@@ -1,34 +1,34 @@
 modified here
 
-// Відкриваємо тестове зображення.
+// A?ae?eaa?ii oanoiaa cia?a?aiiy.
 run("Leaf (36K)");
  
-// запускаємо плагін.
+// caionea?ii ieaa?i.
 run("Trainable Weka Segmentation");
  
-// відраховуємо час на запуск плагіну.
+// a?a?aoiao?ii ?an ia caione ieaa?io.
 wait(3000);
 selectWindow("Trainable Weka Segmentation v2.2.0");
  
-// додаємо до кожного класу область на зображенні.
+// aiaa?ii ai ei?iiai eeano iaeanou ia cia?a?aii?.
 makeRectangle(367, 0, 26, 94);
 call("trainableSegmentation.Weka_Segmentation.addTrace", "0", "1");
 makeRectangle(186, 132, 23, 166);
 call("trainableSegmentation.Weka_Segmentation.addTrace", "1", "1");
  
-// підключаємо деякі особливості, за якими буде відбуватися сегментація
+// i?aee??a?ii aaye? iniaeeaino?, ca yeeie aoaa a?aaoaaoeny naaiaioao?y
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Variance=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Mean=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Minimum=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Maximum=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Median=true");
  
-// Є можливість змінити назви класів
+// ? ii?eea?nou ci?ieoe iacae eean?a
 call("trainableSegmentation.Weka_Segmentation.changeClassName", "0", "background");
 call("trainableSegmentation.Weka_Segmentation.changeClassName", "1", "leaf");
  
-// запуск навчання
+// caione iaa?aiiy
 call("trainableSegmentation.Weka_Segmentation.trainClassifier");
  
-// відобразити ймовірнісну картину(Рис. 3)
+// a?aia?aceoe eiia??i?nio ea?oeio(?en. 3)
 call("trainableSegmentation.Weka_Segmentation.getProbability");
