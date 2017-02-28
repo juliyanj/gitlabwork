@@ -1,32 +1,34 @@
-// Відкриваємо тестове зображення.
+modified here
+
+// Г‚ВіГ¤ГЄГ°ГЁГўГ ВєГ¬Г® ГІГҐГ±ГІГ®ГўГҐ Г§Г®ГЎГ°Г Г¦ГҐГ­Г­Гї.
 run("Leaf (36K)");
  
-// запускаємо плагін.
+// Г§Г ГЇГіГ±ГЄГ ВєГ¬Г® ГЇГ«Г ГЈВіГ­.
 run("Trainable Weka Segmentation");
  
-// відраховуємо час на запуск плагіну.
+// ГўВіГ¤Г°Г ГµГ®ГўГіВєГ¬Г® Г·Г Г± Г­Г  Г§Г ГЇГіГ±ГЄ ГЇГ«Г ГЈВіГ­Гі.
 wait(3000);
 selectWindow("Trainable Weka Segmentation v2.2.0");
  
-// додаємо до кожного класу область на зображенні.
+// Г¤Г®Г¤Г ВєГ¬Г® Г¤Г® ГЄГ®Г¦Г­Г®ГЈГ® ГЄГ«Г Г±Гі Г®ГЎГ«Г Г±ГІГј Г­Г  Г§Г®ГЎГ°Г Г¦ГҐГ­Г­Ві.
 makeRectangle(367, 0, 26, 94);
 call("trainableSegmentation.Weka_Segmentation.addTrace", "0", "1");
 makeRectangle(186, 132, 23, 166);
 call("trainableSegmentation.Weka_Segmentation.addTrace", "1", "1");
  
-// підключаємо деякі особливості, за якими буде відбуватися сегментація
+// ГЇВіГ¤ГЄГ«ГѕГ·Г ВєГ¬Г® Г¤ГҐГїГЄВі Г®Г±Г®ГЎГ«ГЁГўГ®Г±ГІВі, Г§Г  ГїГЄГЁГ¬ГЁ ГЎГіГ¤ГҐ ГўВіГ¤ГЎГіГўГ ГІГЁГ±Гї Г±ГҐГЈГ¬ГҐГ­ГІГ Г¶ВіГї
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Variance=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Mean=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Minimum=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Maximum=true");
 call("trainableSegmentation.Weka_Segmentation.setFeature", "Median=true");
  
-// Є можливість змінити назви класів
+// ВЄ Г¬Г®Г¦Г«ГЁГўВіГ±ГІГј Г§Г¬ВіГ­ГЁГІГЁ Г­Г Г§ГўГЁ ГЄГ«Г Г±ВіГў
 call("trainableSegmentation.Weka_Segmentation.changeClassName", "0", "background");
 call("trainableSegmentation.Weka_Segmentation.changeClassName", "1", "leaf");
  
-// запуск навчання
+// Г§Г ГЇГіГ±ГЄ Г­Г ГўГ·Г Г­Г­Гї
 call("trainableSegmentation.Weka_Segmentation.trainClassifier");
  
-// відобразити ймовірнісну картину(Рис. 3)
+// ГўВіГ¤Г®ГЎГ°Г Г§ГЁГІГЁ Г©Г¬Г®ГўВіГ°Г­ВіГ±Г­Гі ГЄГ Г°ГІГЁГ­Гі(ГђГЁГ±. 3)
 call("trainableSegmentation.Weka_Segmentation.getProbability");
